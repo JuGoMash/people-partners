@@ -2,24 +2,32 @@ import { ArrowRight, Scale, Shield, Users, TrendingUp, Briefcase, Mail, Phone, M
 import { Link } from "react-router-dom";
 
 export default function Index() {
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation Header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
               <Users className="w-6 h-6 text-primary-foreground" />
             </div>
-            <span className="font-bold text-lg hidden sm:inline">GTK</span>
+            <span className="font-bold text-lg hidden sm:inline group-hover:text-primary transition">GTK</span>
           </Link>
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#services" className="text-sm hover:text-primary transition">Services</a>
-            <a href="#why-us" className="text-sm hover:text-primary transition">Why GTK</a>
-            <a href="#contact" className="text-sm hover:text-primary transition">Contact</a>
+            <a href="#services" onClick={(e) => handleSmoothScroll(e, "services")} className="text-sm hover:text-primary transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">Services</a>
+            <a href="#why-us" onClick={(e) => handleSmoothScroll(e, "why-us")} className="text-sm hover:text-primary transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">Why GTK</a>
+            <a href="#contact" onClick={(e) => handleSmoothScroll(e, "contact")} className="text-sm hover:text-primary transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">Contact</a>
           </nav>
-          <a href="tel:0786063749" className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition text-sm">
-            Get Started
+          <a href="#contact" onClick={(e) => handleSmoothScroll(e, "contact")} className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition text-sm cursor-pointer">
+            Contact Us
           </a>
         </div>
       </header>
