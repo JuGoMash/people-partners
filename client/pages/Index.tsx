@@ -1,5 +1,5 @@
-import { ArrowRight, Scale, Shield, Users, TrendingUp, Briefcase, Mail, Phone, MapPin, Globe } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { ArrowRight, Scale, Shield, TrendingUp, Briefcase, Mail, Phone, MapPin, Globe } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Index() {
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -16,9 +16,11 @@ export default function Index() {
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center group-hover:scale-125 group-hover:shadow-xl transition-all duration-300 border-2 border-primary/20">
-              <Users className="w-7 h-7 text-primary-foreground" />
-            </div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2Faf68e484decf46379ccbfc0f4be45e74%2Fb6e0e84606394ae4926dc19e95311903?format=webp&width=100"
+              alt="GTK People Partners"
+              className="h-12 w-auto group-hover:scale-110 transition-transform duration-300"
+            />
             <div className="hidden sm:flex flex-col">
               <span className="font-bold text-lg group-hover:text-primary transition">GTK</span>
               <span className="text-xs text-primary font-semibold">People Partners</span>

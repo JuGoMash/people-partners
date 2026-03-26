@@ -8,9 +8,11 @@ export default function Recruitment() {
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Users className="w-6 h-6 text-primary-foreground" />
-            </div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2Faf68e484decf46379ccbfc0f4be45e74%2Fb6e0e84606394ae4926dc19e95311903?format=webp&width=100"
+              alt="GTK People Partners"
+              className="h-12 w-auto group-hover:scale-110 transition-transform duration-300"
+            />
             <span className="font-bold text-lg hidden sm:inline group-hover:text-primary transition">GTK</span>
           </Link>
           <Link to="/" className="flex items-center gap-2 text-primary hover:opacity-80 transition">
