@@ -1,5 +1,5 @@
 import { ArrowRight, Scale, Shield, Users, TrendingUp, Briefcase, Mail, Phone, MapPin, Globe } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Index() {
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -16,14 +16,18 @@ export default function Index() {
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Users className="w-6 h-6 text-primary-foreground" />
+            <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center group-hover:scale-125 group-hover:shadow-xl transition-all duration-300 border-2 border-primary/20">
+              <Users className="w-7 h-7 text-primary-foreground" />
             </div>
-            <span className="font-bold text-lg hidden sm:inline group-hover:text-primary transition">GTK</span>
+            <div className="hidden sm:flex flex-col">
+              <span className="font-bold text-lg group-hover:text-primary transition">GTK</span>
+              <span className="text-xs text-primary font-semibold">People Partners</span>
+            </div>
           </Link>
           <nav className="hidden md:flex items-center gap-8">
             <a href="#services" onClick={(e) => handleSmoothScroll(e, "services")} className="text-sm hover:text-primary transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">Services</a>
             <a href="#why-us" onClick={(e) => handleSmoothScroll(e, "why-us")} className="text-sm hover:text-primary transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">Why GTK</a>
+            <Link to="/about" className="text-sm hover:text-primary transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">About Us</Link>
             <a href="#contact" onClick={(e) => handleSmoothScroll(e, "contact")} className="text-sm hover:text-primary transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">Contact</a>
           </nav>
           <a href="#contact" onClick={(e) => handleSmoothScroll(e, "contact")} className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition text-sm cursor-pointer">
@@ -93,7 +97,7 @@ export default function Index() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
             {/* Labour Relations */}
-            <div className="bg-background rounded-lg p-6 border border-border hover:border-primary transition group">
+            <Link to="/services/labour-relations" className="bg-background rounded-lg p-6 border border-border hover:border-primary transition group hover:shadow-lg hover:scale-105">
               <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/30 transition">
                 <Scale className="w-6 h-6 text-primary" />
               </div>
@@ -116,10 +120,10 @@ export default function Index() {
                   <span>Collective bargaining</span>
                 </li>
               </ul>
-            </div>
+            </Link>
 
             {/* Compliance Advisory */}
-            <div className="bg-background rounded-lg p-6 border border-border hover:border-primary transition group">
+            <Link to="/services/compliance-advisory" className="bg-background rounded-lg p-6 border border-border hover:border-primary transition group hover:shadow-lg hover:scale-105">
               <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/30 transition">
                 <Shield className="w-6 h-6 text-primary" />
               </div>
@@ -142,10 +146,10 @@ export default function Index() {
                   <span>Policy alignment</span>
                 </li>
               </ul>
-            </div>
+            </Link>
 
             {/* HR Strategy & Design */}
-            <div className="bg-background rounded-lg p-6 border border-border hover:border-primary transition group">
+            <Link to="/services/hr-strategy" className="bg-background rounded-lg p-6 border border-border hover:border-primary transition group hover:shadow-lg hover:scale-105">
               <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/30 transition">
                 <TrendingUp className="w-6 h-6 text-primary" />
               </div>
@@ -168,10 +172,10 @@ export default function Index() {
                   <span>Change management</span>
                 </li>
               </ul>
-            </div>
+            </Link>
 
             {/* Training & Development */}
-            <div className="bg-background rounded-lg p-6 border border-border hover:border-primary transition group">
+            <Link to="/services/training-development" className="bg-background rounded-lg p-6 border border-border hover:border-primary transition group hover:shadow-lg hover:scale-105">
               <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/30 transition">
                 <Briefcase className="w-6 h-6 text-primary" />
               </div>
@@ -194,10 +198,10 @@ export default function Index() {
                   <span>IR awareness training</span>
                 </li>
               </ul>
-            </div>
+            </Link>
 
             {/* 360 Recruitment */}
-            <div className="bg-background rounded-lg p-6 border border-border hover:border-primary transition group">
+            <Link to="/services/recruitment" className="bg-background rounded-lg p-6 border border-border hover:border-primary transition group hover:shadow-lg hover:scale-105">
               <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/30 transition">
                 <Users className="w-6 h-6 text-primary" />
               </div>
@@ -220,7 +224,7 @@ export default function Index() {
                   <span>Talent pool planning</span>
                 </li>
               </ul>
-            </div>
+            </Link>
           </div>
 
           <p className="text-center text-sm text-muted-foreground mt-12">
