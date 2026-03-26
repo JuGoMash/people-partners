@@ -1,4 +1,4 @@
-import { ArrowRight, Scale, Shield, TrendingUp, Briefcase, Mail, Phone, MapPin, Globe } from "lucide-react";
+import { ArrowRight, Scale, Shield, Users, TrendingUp, Briefcase, Mail, Phone, MapPin, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Index() {
