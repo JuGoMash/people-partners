@@ -15,11 +15,14 @@ export default function FounderFlipCard() {
 
   return (
     <div
-      className="h-full perspective cursor-pointer"
+      className="h-full cursor-pointer w-full"
       onClick={() => setIsFlipped(!isFlipped)}
+      style={{
+        perspective: "1000px",
+      }}
     >
       <div
-        className="relative w-full h-full rounded-lg overflow-hidden"
+        className="w-full h-full rounded-lg overflow-hidden relative"
         style={{
           transformStyle: "preserve-3d",
           transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
@@ -48,23 +51,25 @@ export default function FounderFlipCard() {
 
         {/* Back Side - Qualifications */}
         <div
-          className="w-full h-full rounded-lg p-8 bg-gradient-to-br from-primary/20 to-primary/10 border border-primary/30 flex flex-col justify-center overflow-auto absolute inset-0"
+          className="w-full h-full rounded-lg p-8 bg-gradient-to-br from-primary/20 to-primary/10 border border-primary/30 flex flex-col justify-center absolute inset-0 overflow-y-auto"
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
           }}
         >
-          <h4 className="font-bold text-xl mb-6 text-primary">Qualifications & Certifications</h4>
-          <ul className="space-y-3 text-sm">
-            {qualifications.map((qual, index) => (
-              <li key={index} className="flex items-start gap-2">
-                <span className="text-primary font-bold mt-1 flex-shrink-0">✓</span>
-                <span className="text-muted-foreground">{qual}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="text-white/60 text-xs mt-6">Click to flip back</p>
+          <div>
+            <h4 className="font-bold text-xl mb-6 text-primary">Qualifications & Certifications</h4>
+            <ul className="space-y-3 text-sm">
+              {qualifications.map((qual, index) => (
+                <li key={index} className="flex items-start gap-2">
+                  <span className="text-primary font-bold mt-1 flex-shrink-0">✓</span>
+                  <span className="text-muted-foreground">{qual}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-muted-foreground text-xs mt-6">Click to flip back</p>
+          </div>
         </div>
       </div>
     </div>
