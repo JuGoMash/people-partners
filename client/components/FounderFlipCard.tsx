@@ -51,7 +51,7 @@ export default function FounderFlipCard() {
 
         {/* Back Side - Qualifications */}
         <div
-          className="w-full h-full rounded-lg p-8 bg-gradient-to-br from-primary/20 to-primary/10 border border-primary/30 flex flex-col justify-center absolute inset-0 overflow-y-auto"
+          className="w-full h-full rounded-lg p-8 bg-card border border-border flex flex-col justify-center absolute inset-0 overflow-y-auto"
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
@@ -68,7 +68,7 @@ export default function FounderFlipCard() {
                 </li>
               ))}
             </ul>
-            <p className="text-muted-foreground text-xs mt-6">Click to flip back</p>
+            <p className="text-muted-foreground text-xs mt-8 pt-6 border-t border-border">Click to flip back</p>
           </div>
         </div>
       </div>
