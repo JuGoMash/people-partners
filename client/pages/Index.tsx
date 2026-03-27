@@ -1,5 +1,6 @@
 import { ArrowRight, Scale, Shield, Users, TrendingUp, Briefcase, Mail, Phone, MapPin, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
+import ClientsCarousel from "../components/ClientsCarousel";
 
 export default function Index() {
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -302,15 +303,7 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="mt-16 p-8 bg-card rounded-lg border border-border">
-            <p className="text-sm font-semibold text-primary mb-4">CLIENTS INCLUDE:</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-              <div className="text-muted-foreground">Excellent Security Services</div>
-              <div className="text-muted-foreground">HEWI-Africa</div>
-              <div className="text-muted-foreground">Saifleet Car Rental</div>
-              <div className="text-muted-foreground">Mimi Beauty Studio</div>
-            </div>
-          </div>
+          <ClientsCarousel />
         </div>
       </section>
 
