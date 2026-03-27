@@ -1,6 +1,5 @@
 import { ArrowLeft, Target, Heart, Users } from "lucide-react";
 import { Link } from "react-router-dom";
-import FounderFlipCard from "../components/FounderFlipCard";
 
 export default function About() {
   return (
@@ -133,8 +132,12 @@ export default function About() {
           <h2 className="text-3xl font-bold mb-12">Meet Our Founder</h2>
           
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="h-96">
-              <FounderFlipCard />
+            <div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F1767ae7c4b504b479256eb8b0d95e4d0%2Fc85e12e4ecf3497eafe487bc60ed8b9a?format=webp&width=800&height=1200"
+                alt="Gabriel Mapetere, Founder & Director"
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
             </div>
 
             <div>
@@ -150,10 +153,37 @@ export default function About() {
               </p>
 
               <div className="bg-card rounded-lg p-6 border border-border">
-                <h4 className="font-bold text-lg mb-3 text-primary">Pro Tip</h4>
-                <p className="text-sm text-muted-foreground">
-                  Click the founder's photo on the left to view his full qualifications and certifications.
-                </p>
+                <h4 className="font-bold text-lg mb-4 text-primary">Qualifications & Certifications</h4>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary font-bold">✓</span>
+                    <span>Master of Social Science (Sociology)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary font-bold">✓</span>
+                    <span>Bachelor of Social Science (Honours) – Sociology</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary font-bold">✓</span>
+                    <span>Bachelor of Social Science (Human Resources Management)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary font-bold">✓</span>
+                    <span>Certificate in Strategic Human Resources</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary font-bold">✓</span>
+                    <span>Certificate in Labour Relations for Leaders</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary font-bold">✓</span>
+                    <span>Certificate in People Analytics | Talent Management</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary font-bold">✓</span>
+                    <span>Certificate in Project Management Foundations</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
