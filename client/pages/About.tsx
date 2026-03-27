@@ -1,4 +1,4 @@
-import { ArrowLeft, Target, Heart, Users } from "lucide-react";
+import { ArrowLeft, Target, Heart, Users, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function About() {
@@ -132,15 +132,42 @@ export default function About() {
           <h2 className="text-3xl font-bold mb-12">Meet Our Founder</h2>
           
           <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <div className="bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg p-12 h-full flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-32 h-32 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Users className="w-16 h-16 text-primary-foreground" />
-                  </div>
-                  <h3 className="text-2xl font-bold">Gabriel Mapetere</h3>
-                  <p className="text-primary font-semibold">Founder & Director</p>
+            <div className="relative">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F1767ae7c4b504b479256eb8b0d95e4d0%2Fc85e12e4ecf3497eafe487bc60ed8b9a?format=webp&width=800&height=1200"
+                alt="Gabriel Mapetere, Founder & CEO"
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+              {/* Overlay Info */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-lg flex flex-col justify-end p-8">
+                <div className="mb-4">
+                  <span className="inline-block px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full mb-3">
+                    Founder & CEO
+                  </span>
                 </div>
+                <h3 className="text-3xl font-bold text-white mb-4">Gabriel Mapetere</h3>
+
+                <div className="flex items-center gap-2 mb-6">
+                  <Linkedin className="w-5 h-5 text-blue-400" />
+                  <a
+                    href="https://www.linkedin.com/in/gabrielmapetere"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white text-sm hover:text-blue-300 transition"
+                  >
+                    linkedin.com/in/gabrielmapetere
+                  </a>
+                </div>
+
+                <a
+                  href="https://www.linkedin.com/in/gabrielmapetere"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition w-fit"
+                >
+                  <Linkedin className="w-4 h-4" />
+                  Connect on LinkedIn
+                </a>
               </div>
             </div>
 

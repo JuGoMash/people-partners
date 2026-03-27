@@ -120,3 +120,25 @@
     white-space: pre;
   }
 }
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.carousel-belt {
+  animation: scroll-left 20s linear infinite;
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
