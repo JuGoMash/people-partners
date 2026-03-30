@@ -1,4 +1,4 @@
-import { ArrowRight, Scale, Shield, Users, TrendingUp, Briefcase, Mail, Phone, MapPin, Globe, Menu, X } from "lucide-react";
+import { ArrowRight, Scale, Shield, Users, TrendingUp, Briefcase, Mail, Phone, MapPin, Globe, Menu, X, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import ClientsCarousel from "../components/ClientsCarousel";
@@ -41,6 +41,7 @@ export default function Index() {
           <nav className="hidden md:flex items-center gap-8">
             <a href="#services" onClick={(e) => handleSmoothScroll(e, "services")} className="text-sm hover:text-primary transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">Services</a>
             <a href="#why-us" onClick={(e) => handleSmoothScroll(e, "why-us")} className="text-sm hover:text-primary transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">Why GTK</a>
+            <a href="#vacancies" onClick={(e) => handleSmoothScroll(e, "vacancies")} className="text-sm hover:text-primary transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">Vacancies</a>
             <Link to="/about" className="text-sm hover:text-primary transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">About Us</Link>
             <a href="#contact" onClick={(e) => handleSmoothScroll(e, "contact")} className="text-sm hover:text-primary transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">Contact</a>
           </nav>
@@ -75,6 +76,13 @@ export default function Index() {
                 className="text-sm py-2 hover:text-primary transition"
               >
                 Why GTK
+              </a>
+              <a
+                href="#vacancies"
+                onClick={(e) => handleSmoothScroll(e, "vacancies")}
+                className="text-sm py-2 hover:text-primary transition"
+              >
+                Vacancies
               </a>
               <Link
                 to="/about"
@@ -133,8 +141,8 @@ export default function Index() {
             </div>
             <div className="grid grid-cols-3 gap-4 mt-16 pt-12 border-t border-border">
               <div>
-                <div className="text-3xl font-bold text-primary">8+</div>
-                <div className="text-sm text-muted-foreground">Years Experience</div>
+                <div className="text-3xl font-bold text-primary">8 years</div>
+                <div className="text-sm text-muted-foreground">(est 2018)</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-primary">5+</div>
@@ -299,6 +307,98 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Vacancies Section */}
+      <section id="vacancies" className="py-20 md:py-32 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Current Vacancies
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Join our team and grow your career with GTK People Partners
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
+            {/* Example Vacancy Card */}
+            <div className="bg-card rounded-lg p-6 border border-border hover:border-primary transition group">
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Senior HR Consultant</h3>
+                  <p className="text-sm text-primary font-semibold">Johannesburg</p>
+                </div>
+                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">Full-time</span>
+              </div>
+
+              <p className="text-muted-foreground text-sm mb-4">
+                Experienced HR professional with 5+ years in consulting. Strong knowledge of labour law and ability to manage multiple client engagements.
+              </p>
+
+              <div className="space-y-2 text-sm text-muted-foreground mb-4">
+                <p className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>Bachelor's degree in HR or related field</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>5+ years HR consulting experience</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>Knowledge of SA labour law</span>
+                </p>
+              </div>
+
+              <a href="mailto:info.gtkconsulting@gmail.com?subject=Application:%20Senior%20HR%20Consultant" className="text-primary hover:underline text-sm font-semibold">
+                Apply Now →
+              </a>
+            </div>
+
+            <div className="bg-card rounded-lg p-6 border border-border hover:border-primary transition group">
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Labour Relations Officer</h3>
+                  <p className="text-sm text-primary font-semibold">Johannesburg</p>
+                </div>
+                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">Full-time</span>
+              </div>
+
+              <p className="text-muted-foreground text-sm mb-4">
+                Proactive professional to support labour relations matters, disciplinary processes, and employee grievances with detailed documentation.
+              </p>
+
+              <div className="space-y-2 text-sm text-muted-foreground mb-4">
+                <p className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>3+ years experience in labour relations</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>Strong writing and documentation skills</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>Excellent organizational abilities</span>
+                </p>
+              </div>
+
+              <a href="mailto:info.gtkconsulting@gmail.com?subject=Application:%20Labour%20Relations%20Officer" className="text-primary hover:underline text-sm font-semibold">
+                Apply Now →
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-12 p-8 bg-card rounded-lg border border-border text-center">
+            <p className="text-muted-foreground mb-4">
+              Don't see the right fit? We're always looking for talented individuals.
+            </p>
+            <a href="mailto:careers@gtkconsulting@gmail.com" className="text-primary hover:underline font-semibold">
+              Send your CV and cover letter
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose GTK Section */}
       <section id="why-us" className="py-20 md:py-32 bg-background">
         <div className="container mx-auto px-4">
@@ -447,7 +547,7 @@ export default function Index() {
               Your business is growing. Your people challenges are real. GTK People Partners is your dedicated HR and labour law partner — protecting your business, empowering your people, and keeping you compliant every step of the way.
             </p>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
               {/* Contact Info Cards */}
               <div className="bg-card rounded-lg p-6 border border-border">
                 <div className="flex items-center gap-3 mb-3">
@@ -466,6 +566,16 @@ export default function Index() {
                 </div>
                 <a href="tel:0786063749" className="text-primary hover:underline text-sm">
                   078 606 3749
+                </a>
+              </div>
+
+              <div className="bg-card rounded-lg p-6 border border-border">
+                <div className="flex items-center gap-3 mb-3">
+                  <MessageCircle className="w-5 h-5 text-primary" />
+                  <span className="font-semibold">WhatsApp</span>
+                </div>
+                <a href="https://wa.me/27786063749" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm">
+                  Message Us
                 </a>
               </div>
 
