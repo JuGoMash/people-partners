@@ -1,7 +1,12 @@
 import { ArrowLeft, Shield, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSEO } from "../../hooks/use-seo";
 
 export default function ComplianceAdvisory() {
+  useSEO({
+    title: 'Compliance Advisory - GTK People Partners',
+    description: 'Labour law compliance audits, LRA/BCEA/EEA guidance, employment equity, and policy alignment for South African businesses.',
+  });
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}

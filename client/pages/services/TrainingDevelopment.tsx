@@ -1,7 +1,12 @@
 import { ArrowLeft, Briefcase, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSEO } from "../../hooks/use-seo";
 
 export default function TrainingDevelopment() {
+  useSEO({
+    title: 'Training & Development - GTK People Partners',
+    description: 'Custom soft skills training, manager coaching, IR awareness programs, and employee development for South African businesses.',
+  });
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
