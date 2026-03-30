@@ -1,7 +1,15 @@
-import { ArrowLeft, Target, Heart, Users, Linkedin } from "lucide-react";
+import { ArrowLeft, Target, Heart, Users, Linkedin, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useSEO } from "../hooks/use-seo";
 
 export default function About() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useSEO({
+    title: 'About GTK People Partners - Labour Law & HR Experts',
+    description: 'Learn about GTK People Partners\' mission to protect businesses and empower people through expert HR and labour law consulting in South Africa.',
+  });
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
@@ -15,11 +23,36 @@ export default function About() {
             />
             <span className="font-bold text-lg hidden sm:inline group-hover:text-primary transition">GTK</span>
           </Link>
-          <Link to="/" className="flex items-center gap-2 text-primary hover:opacity-80 transition">
-            <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm">Back</span>
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link to="/" className="hidden sm:flex items-center gap-2 text-primary hover:opacity-80 transition">
+              <ArrowLeft className="w-4 h-4" />
+              <span className="text-sm">Back</span>
+            </Link>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 hover:bg-card rounded-lg transition"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-card border-t border-border">
+            <nav className="container mx-auto px-4 py-4 flex flex-col gap-3">
+              <Link
+                to="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm py-2 hover:text-primary transition flex items-center gap-2"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Back to Home
+              </Link>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}

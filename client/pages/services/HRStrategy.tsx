@@ -1,7 +1,12 @@
 import { ArrowLeft, TrendingUp, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSEO } from "../../hooks/use-seo";
 
 export default function HRStrategy() {
+  useSEO({
+    title: 'HR Strategy & Design - GTK People Partners',
+    description: 'Strategic HR planning, organizational design, performance management, and change management for growing South African businesses.',
+  });
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}

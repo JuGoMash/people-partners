@@ -1,7 +1,12 @@
 import { ArrowLeft, Users, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSEO } from "../../hooks/use-seo";
 
 export default function Recruitment() {
+  useSEO({
+    title: '360 Recruitment Services - GTK People Partners',
+    description: 'Full-cycle recruitment, role profiling, candidate screening, and talent pool planning for South African businesses.',
+  });
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}

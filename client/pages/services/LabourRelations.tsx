@@ -1,7 +1,12 @@
 import { ArrowLeft, Scale, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSEO } from "../../hooks/use-seo";
 
 export default function LabourRelations() {
+  useSEO({
+    title: 'Labour Relations Consulting - GTK People Partners',
+    description: 'Expert labour relations support including disciplinary hearings, CCMA representation, grievance management, and collective bargaining in South Africa.',
+  });
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}

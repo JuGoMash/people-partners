@@ -1,14 +1,25 @@
-import { ArrowRight, Scale, Shield, Users, TrendingUp, Briefcase, Mail, Phone, MapPin, Globe } from "lucide-react";
+import { ArrowRight, Scale, Shield, Users, TrendingUp, Briefcase, Mail, Phone, MapPin, Globe, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import ClientsCarousel from "../components/ClientsCarousel";
+import ContactForm from "../components/ContactForm";
+import { useSEO } from "../hooks/use-seo";
 
 export default function Index() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useSEO({
+    title: 'GTK People Partners - Labour & HR Consulting Specialists',
+    description: 'Expert labour law and HR consulting for growing businesses in South Africa. Compliance, strategy, recruitment, and training solutions.',
+  });
+
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     const target = document.getElementById(targetId);
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
     }
+    setMobileMenuOpen(false);
   };
 
   return (
@@ -33,10 +44,62 @@ export default function Index() {
             <Link to="/about" className="text-sm hover:text-primary transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">About Us</Link>
             <a href="#contact" onClick={(e) => handleSmoothScroll(e, "contact")} className="text-sm hover:text-primary transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">Contact</a>
           </nav>
-          <a href="#contact" onClick={(e) => handleSmoothScroll(e, "contact")} className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition text-sm cursor-pointer">
-            Contact Us
-          </a>
+          <div className="flex items-center gap-4">
+            <a href="#contact" onClick={(e) => handleSmoothScroll(e, "contact")} className="hidden sm:block px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition text-sm cursor-pointer">
+              Contact Us
+            </a>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 hover:bg-card rounded-lg transition"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-card border-t border-border">
+            <nav className="container mx-auto px-4 py-4 flex flex-col gap-3">
+              <a
+                href="#services"
+                onClick={(e) => handleSmoothScroll(e, "services")}
+                className="text-sm py-2 hover:text-primary transition"
+              >
+                Services
+              </a>
+              <a
+                href="#why-us"
+                onClick={(e) => handleSmoothScroll(e, "why-us")}
+                className="text-sm py-2 hover:text-primary transition"
+              >
+                Why GTK
+              </a>
+              <Link
+                to="/about"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm py-2 hover:text-primary transition"
+              >
+                About Us
+              </Link>
+              <a
+                href="#contact"
+                onClick={(e) => handleSmoothScroll(e, "contact")}
+                className="text-sm py-2 hover:text-primary transition"
+              >
+                Contact
+              </a>
+              <a
+                href="#contact"
+                onClick={(e) => handleSmoothScroll(e, "contact")}
+                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition text-sm cursor-pointer text-center w-full"
+              >
+                Contact Us
+              </a>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
@@ -374,61 +437,54 @@ export default function Index() {
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
               Let's Work Together
             </h2>
-            <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
+            <p className="text-xl text-muted-foreground mb-12 leading-relaxed text-center">
               Your business is growing. Your people challenges are real. GTK People Partners is your dedicated HR and labour law partner — protecting your business, empowering your people, and keeping you compliant every step of the way.
             </p>
-            
-            <div className="grid md:grid-cols-2 gap-6 mb-12">
-              <div className="bg-card rounded-lg p-6 border border-border text-left">
+
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              {/* Contact Info Cards */}
+              <div className="bg-card rounded-lg p-6 border border-border">
                 <div className="flex items-center gap-3 mb-3">
                   <Mail className="w-5 h-5 text-primary" />
                   <span className="font-semibold">Email</span>
                 </div>
-                <a href="mailto:info.gtkconsulting@gmail.com" className="text-primary hover:underline">
+                <a href="mailto:info.gtkconsulting@gmail.com" className="text-primary hover:underline text-sm">
                   info.gtkconsulting@gmail.com
                 </a>
               </div>
-              
-              <div className="bg-card rounded-lg p-6 border border-border text-left">
+
+              <div className="bg-card rounded-lg p-6 border border-border">
                 <div className="flex items-center gap-3 mb-3">
                   <Phone className="w-5 h-5 text-primary" />
                   <span className="font-semibold">Phone</span>
                 </div>
-                <a href="tel:0786063749" className="text-primary hover:underline">
+                <a href="tel:0786063749" className="text-primary hover:underline text-sm">
                   078 606 3749
                 </a>
               </div>
-              
-              <div className="bg-card rounded-lg p-6 border border-border text-left">
+
+              <div className="bg-card rounded-lg p-6 border border-border">
                 <div className="flex items-center gap-3 mb-3">
                   <MapPin className="w-5 h-5 text-primary" />
                   <span className="font-semibold">Address</span>
                 </div>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground text-sm">
                   20 Petroy Drive, Magaliessig, Jhb
                 </p>
               </div>
-              
-              <div className="bg-card rounded-lg p-6 border border-border text-left">
-                <div className="flex items-center gap-3 mb-3">
-                  <Globe className="w-5 h-5 text-primary" />
-                  <span className="font-semibold">Web</span>
-                </div>
-                <a href="https://www.gtkconsulting.co.za" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                  www.gtkconsulting.co.za
-                </a>
-              </div>
             </div>
 
-            <a href="tel:0786063749" className="inline-block px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition">
-              Get Expert Support Today
-            </a>
+            {/* Contact Form */}
+            <div className="bg-card rounded-lg p-8 md:p-12 border border-border">
+              <h3 className="text-2xl font-bold mb-6">Send us a Message</h3>
+              <ContactForm />
+            </div>
           </div>
         </div>
       </section>
